@@ -3,13 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 export interface UserState {
   name: string | null;
   user: string | null;
-
+  login:boolean;
 }
 
 const initialState: UserState = {
   name: null,
   user: null,
-  login:false,
+  login:true, //Temporalmente siempre logeado
 }
 
 export const userSlice = createSlice({

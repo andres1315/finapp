@@ -1,18 +1,22 @@
+import { useEffect } from "react";
 import { useUserStore } from "../../hooks/useUserStore";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
 
 
-  const {onLogin} = useUserStore();
+  const {onLogin,login} = useUserStore();
+  const navigate = useNavigate();
   const handleLogin =(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const dataForm = new FormData(e.target as HTMLFormElement);
-    const dataUser =Object.fromEntries(dataForm) as {user:string,password:string};
-    
+    const dataUser =Object.fromEntries(dataForm) as {user:string,password:string};    
     onLogin(dataUser)
-  
-    
   }
+
+  useEffect(()=>{
+    if(login) navigate("/")
+  },[login])
   return (
     <div className="bg-slate-800 h-screen">
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 self-center">
