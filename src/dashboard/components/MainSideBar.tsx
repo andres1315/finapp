@@ -2,14 +2,15 @@
 
 import { Sidebar } from "flowbite-react";
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
+import { themeMainSideBar } from "../../common/theme/customTheme";
 
 export function MainSideBar() {
   return (
-    <Sidebar aria-label="Sidebar with logo branding example" className="">
+    <Sidebar aria-label="Sidebar with logo branding example" className="" theme={themeMainSideBar}>
       <Sidebar.Logo href="#" img="/finApp.webp" imgAlt="FinApp Logo" className="w-40">
         Flowbite
       </Sidebar.Logo>
-      <Sidebar.Items className="min-h-screen  flex items-center">
+      <Sidebar.Items className="flex items-center">
         <Sidebar.ItemGroup className="w-full">
           <Sidebar.Item href="#" icon={HiChartPie}>
             Dashboard
